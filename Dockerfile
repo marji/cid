@@ -4,6 +4,8 @@ LABEL maintainer="marji@morpht.com"
 
 USER root
 
+RUN rm -rf /opt/drupal
+
 RUN composer self-update --2
 
 RUN apk --update add git
