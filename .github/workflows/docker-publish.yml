@@ -1,6 +1,8 @@
 name: build_and_publish
 on:
   push:
+    branches:
+      - 'master'
     tags:
       # Build on every tag:
       - '**'
@@ -33,6 +35,7 @@ jobs:
         name: Build and push release image
         uses: docker/build-push-action@v2
         with:
+          context: ./
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/ci-drupal-composer:latest
